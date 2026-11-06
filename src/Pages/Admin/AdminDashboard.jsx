@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Users, Package, CreditCard, MessageSquare } from 'lucide-react'
-import { apiRequest } from '../../utils/api'
+import { apiRequest } from '../../Utils/api'
 
 function AdminDashboard() {
   const [stats, setStats] = useState(null)

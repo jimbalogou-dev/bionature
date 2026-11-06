@@ -1,10 +1,10 @@
-import Hero from '../components/Hero'
-import CategoryGrid from '../components/CategoryGrid'
-import BestSellers from '../components/BestSellers'
-import PremiumPacks from '../components/PremiumPacks'
-import Testimonials from '../components/Testimonials'
-import TrustBadges from '../components/TrustBadges'
-import Newsletter from '../components/Newsletter'
+import Hero from '../Components/Hero'
+import CategoryGrid from '../Components/CategoryGrid'
+import BestSellers from '../Components/BestSellers'
+import PremiumPacks from '../Components/PremiumPacks'
+import Testimonials from '../Components/Testimonials'
+import TrustBadges from '../Components/TrustBadges'
+import Newsletter from '../Components/Newsletter'
 
 function Home() {
   return (

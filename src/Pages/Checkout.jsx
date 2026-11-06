@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle, ShieldCheck, Smartphone, CreditCard, Truck, Landmark, Wallet } from 'lucide-react'
 import { premiumPacks } from '../data/premiumPacks'
-import { useCart } from '../context/CartContext'
-import { useOrders } from '../context/OrdersContext'
-import { useProducts } from '../context/ProductsContext'
+import { useCart } from '../Context/CartContext'
+import { useOrders } from '../Context/OrdersContext'
+import { useProducts } from '../Context/ProductsContext'
 
 const countries = [
   { code: 'BJ', name: 'Bénin', currency: 'XOF' },

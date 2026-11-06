@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Package, Trash2 } from 'lucide-react'
-import { apiRequest } from '../../utils/api'
+import { apiRequest } from '../../Utils/api'
 
 function AdminOrders() {
   const [orders, setOrders] = useState([])

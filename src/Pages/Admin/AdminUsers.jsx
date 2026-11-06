@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Users as UsersIcon, Trash2 } from 'lucide-react'
-import { apiRequest } from '../../utils/api'
+import { apiRequest } from '../../Utils/api'
 
 function AdminUsers() {
   const [users, setUsers] = useState([])

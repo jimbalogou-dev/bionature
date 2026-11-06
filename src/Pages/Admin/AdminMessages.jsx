@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { MessageSquare, X, Trash2 } from 'lucide-react'
-import { apiRequest } from '../../utils/api'
+import { apiRequest } from '../../Utils/api'
 
 function AdminMessages() {
   const [messages, setMessages] = useState([])

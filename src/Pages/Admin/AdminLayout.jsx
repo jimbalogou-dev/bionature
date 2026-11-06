@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { LayoutDashboard, Users, Package, MessageSquare, CreditCard, LogOut, Leaf, ShoppingBag, ExternalLink } from 'lucide-react'
-import { useAuth } from '../../context/AuthContext'
+import { useAuth } from '../../Context/AuthContext'
 
 function AdminLayout() {
   const { logout } = useAuth()

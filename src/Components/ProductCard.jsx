@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Heart, Star, Check } from 'lucide-react'
-import { useFavorites } from '../context/FavoritesContext'
-import { useCart } from '../context/CartContext'
-import { useToast } from '../context/ToastContext'
+import { useFavorites } from '../Context/FavoritesContext'
+import { useCart } from '../Context/CartContext'
+import { useToast } from '../Context/ToastContext'
 
 function ProductCard({ product }) {
   const { isFavorite, toggleFavorite } = useFavorites()

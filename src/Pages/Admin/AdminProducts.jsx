@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Plus, Pencil, Trash2, X, Package } from 'lucide-react'
-import { useProducts } from '../../context/ProductsContext'
+import { useProducts } from '../../Context/ProductsContext'
 
 const categoryOptions = [
   { value: 'vitalite-masculine', label: 'Vitalité masculine' },

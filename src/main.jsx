@@ -1,15 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
-import { ProductsProvider } from './context/ProductsContext'
-import { FavoritesProvider } from './context/FavoritesContext'
-import { CartProvider } from './context/CartContext'
-import { OrdersProvider } from './context/OrdersContext'
-import { MessagesProvider } from './context/MessagesContext'
-import { ToastProvider } from './context/ToastContext'
+import { AuthProvider } from './Context/AuthContext'
+import { ProductsProvider } from './Context/ProductsContext'
+import { FavoritesProvider } from './Context/FavoritesContext'
+import { CartProvider } from './Context/CartContext'
+import { OrdersProvider } from './Context/OrdersContext'
+import { MessagesProvider } from './Context/MessagesContext'
+import { ToastProvider } from './Context/ToastContext'
 import './index.css'
-import App from './App.jsx'
+import App from './App'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Leaf } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
-import { WHATSAPP_NUMBER } from '../utils/whatsapp'
+import { WHATSAPP_NUMBER } from '../Utils/whatsapp'
 
 function Footer() {
   return (

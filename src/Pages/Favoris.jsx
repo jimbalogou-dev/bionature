@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Heart } from 'lucide-react'
-import { useProducts } from '../context/ProductsContext'
-import { useFavorites } from '../context/FavoritesContext'
-import ProductCard from '../components/ProductCard'
+import { useProducts } from '../Context/ProductsContext'
+import { useFavorites } from '../Context/FavoritesContext'
+import ProductCard from '../Components/ProductCard'
 
 function Favoris() {
   const { favorites } = useFavorites()

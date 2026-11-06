@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { User, LogOut, Package, Heart, ShoppingBag, TrendingUp } from 'lucide-react'
-import { useAuth } from '../context/AuthContext'
-import { useOrders } from '../context/OrdersContext'
-import { useFavorites } from '../context/FavoritesContext'
+import { useAuth } from '../Context/AuthContext'
+import { useOrders } from '../Context/OrdersContext'
+import { useFavorites } from '../Context/FavoritesContext'
 
 function Account() {
   const { user, logout } = useAuth()

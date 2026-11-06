@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Search, User, Heart, ShoppingCart, Leaf, Menu, X, LayoutDashboard } from 'lucide-react'
-import { useFavorites } from '../context/FavoritesContext'
-import { useCart } from '../context/CartContext'
-import { useAuth } from '../context/AuthContext'
+import { useFavorites } from '../Context/FavoritesContext'
+import { useCart } from '../Context/CartContext'
+import { useAuth } from '../Context/AuthContext'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)

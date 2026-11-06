@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Truck, Globe2, ShieldCheck, Clock, PackageCheck, ExternalLink, MessageCircle } from 'lucide-react'
-import { buildWhatsAppLink } from '../utils/whatsapp'
+import { buildWhatsAppLink } from '../Utils/whatsapp'
 
 function formatPhoneNumber(phoneNumber) {
   const digits = phoneNumber.replace(/\D/g, '')

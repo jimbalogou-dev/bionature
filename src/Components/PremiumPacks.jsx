@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Check, Sparkles } from 'lucide-react'
 import { premiumPacks } from '../data/premiumPacks'
-import { useCart } from '../context/CartContext'
-import { useToast } from '../context/ToastContext'
+import { useCart } from '../Context/CartContext'
+import { useToast } from '../Context/ToastContext'
 
 function PremiumPacks() {
   const { addToCart } = useCart()

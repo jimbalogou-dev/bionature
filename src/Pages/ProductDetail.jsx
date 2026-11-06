@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Star, Heart, Minus, Plus, ArrowLeft, ShieldCheck, Truck, MessageCircle } from 'lucide-react'
-import { useFavorites } from '../context/FavoritesContext'
-import { useCart } from '../context/CartContext'
-import { useProducts } from '../context/ProductsContext'
-import { useToast } from '../context/ToastContext'
-import { buildWhatsAppLink, buildProductMessage, WHATSAPP_NUMBER } from '../utils/whatsapp'
-import ProductCarousel from '../components/ProductCarousel'
+import { useFavorites } from '../Context/FavoritesContext'
+import { useCart } from '../Context/CartContext'
+import { useProducts } from '../Context/ProductsContext'
+import { useToast } from '../Context/ToastContext'
+import { buildWhatsAppLink, buildProductMessage, WHATSAPP_NUMBER } from '../Utils/whatsapp'
+import ProductCarousel from '../Components/ProductCarousel'
 
 function ProductDetail() {
   const { productId } = useParams()

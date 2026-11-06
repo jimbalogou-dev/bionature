@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { SlidersHorizontal } from 'lucide-react'
-import { useProducts } from '../context/ProductsContext'
-import ProductCard from '../components/ProductCard'
+import { useProducts } from '../Context/ProductsContext'
+import ProductCard from '../Components/ProductCard'
 
 const categoryLabels = {
   'vitalite-masculine': 'Vitalité masculine',

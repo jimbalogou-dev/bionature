@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { CreditCard, Globe } from 'lucide-react'
-import { useOrders } from '../../context/OrdersContext'
+import { useOrders } from '../../Context/OrdersContext'
 
 function AdminPayments() {
   const { orders } = useOrders()

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useProducts } from '../context/ProductsContext'
+import { useProducts } from '../Context/ProductsContext'
 import ProductCard from './ProductCard'
 
 function BestSellers() {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Droplet, Leaf, SprayCan, Salad, Pill, Sprout } from 'lucide-react'
-import { useProducts } from '../context/ProductsContext'
+import { useProducts } from '../Context/ProductsContext'
 
 const iconMap = { Droplet, Leaf, SprayCan, Salad, Pill, Sprout }
 

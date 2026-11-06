@@ -1,5 +1,5 @@
 import { Star, ShieldCheck, Quote } from 'lucide-react'
-import { testimonials, trustStats } from '../data/testimonials'
+import { testimonials, trustStats } from '../data/Testimonials'
 
 function Testimonials() {
   return (

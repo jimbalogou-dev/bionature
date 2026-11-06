@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { X, Minus, Plus, Trash2, ShoppingBag, MessageCircle } from 'lucide-react'
-import { useCart } from '../context/CartContext'
-import { useProducts } from '../context/ProductsContext'
+import { useCart } from '../Context/CartContext'
+import { useProducts } from '../Context/ProductsContext'
 import { premiumPacks } from '../data/premiumPacks'
-import { buildWhatsAppLink, buildCartMessage, WHATSAPP_NUMBER } from '../utils/whatsapp'
+import { buildWhatsAppLink, buildCartMessage, WHATSAPP_NUMBER } from '../Utils/whatsapp'
 
 function CartDrawer() {
   const { items, isDrawerOpen, closeDrawer, updateQuantity, removeFromCart } = useCart()
