@@ -1,0 +1,63 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Bénoit K.',
+    location: 'Lubumbashi, République democratique du Congo',
+    rating: 5,
+    text: 'Je recommande vivement. Les résultats ont dépassé mes attentes, et le service client a été très réactif à chaque étape de ma commande.',
+    product: 'Complexe vitalité masculine',
+    verified: true,
+  },
+  {
+    id: 2,
+    name: 'Jean-Baptiste T.',
+    location: 'Abomey-Calavi, Bénin',
+    rating: 5,
+    text: 'Livraison rapide et discrète, exactement comme promis. Le produit est d\'excellente qualité et je vois déjà une réelle différence après quelques semaines.',
+    product: 'Complexe Immunité Renforcée',
+    verified: true,
+  },
+  {
+    id: 3,
+    name: 'Fatou D.',
+    location: 'Yamoussoukro, Côte d\'Ivoire',
+    rating: 5,
+    text: 'Deuxième commande pour moi. Les produits sont 100% naturels et ça se ressent vraiment. Merci pour votre professionnalisme.',
+    product: 'Fibro-nutrix',
+    verified: true,
+  },
+  {
+    id: 4,
+    name: 'Moussa A.',
+    location: 'Ouagadougou, Burkina Faso',
+    rating: 5,
+    text: 'Un accompagnement client au top, ils ont pris le temps de répondre à toutes mes questions avant l\'achat. Produit conforme à la description.',
+    product: 'Complexe vigueur',
+    verified: true,
+  },
+  {
+    id: 5,
+    name: 'Chantale M.',
+    location: 'Lomé, Togo',
+    rating: 4,
+    text: 'Très satisfaite de ma commande. Le colis est arrivé emballé avec soin et dans les délais annoncés.',
+    product: 'Bio nature & Bien-être',
+    verified: true,
+  },
+  {
+    id: 6,
+    name: 'Idrissa S.',
+    location: 'Yaoundé, Cameroun',
+    rating: 5,
+    text: 'Efficace et discret. Je fais confiance à cette boutique depuis plusieurs mois maintenant, jamais déçu.',
+    product: 'Complexe Santé Prostatique',
+    verified: true,
+  },
+]
+
+export const trustStats = [
+  { value: '4.8/5', label: 'Note moyenne clients' },
+  { value: '2,5k+', label: 'Clients satisfaits de nos produits' },
+  { value: '98%', label: 'Recommandent nos produits' },
+  { value: '24/7', label: 'Support client' },
+]
