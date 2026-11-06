@@ -1,7 +1,25 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Leaf } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 import { WHATSAPP_NUMBER } from '../Utils/whatsapp'
+
+function FooterLink({ to, children }) {
+  const { pathname } = useLocation()
+
+  const handleClick = () => {
+    if (pathname === to) window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  return (
+    <Link
+      to={to}
+      onClick={handleClick}
+      className="flex min-h-11 items-center transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400 active:text-green-300"
+    >
+      {children}
+    </Link>
+  )
+}
 
 function Footer() {
   return (
@@ -35,28 +53,28 @@ function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-3">Boutique</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/boutique" className="hover:text-white">Tous les produits</Link></li>
-            <li><Link to="/categories" className="hover:text-white">Catégories</Link></li>
-            <li><Link to="/panier" className="hover:text-white">Mon panier</Link></li>
+            <li><FooterLink to="/boutique">Tous les produits</FooterLink></li>
+            <li><FooterLink to="/categories">Catégories</FooterLink></li>
+            <li><FooterLink to="/panier">Mon panier</FooterLink></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-white font-semibold mb-3">Entreprise</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/a-propos" className="hover:text-white">À propos</Link></li>
-            <li><Link to="/engagements" className="hover:text-white">Nos engagements</Link></li>
-            <li><Link to="/dhl" className="hover:text-white">Agence DHL</Link></li>
-            <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+            <li><FooterLink to="/a-propos">À propos</FooterLink></li>
+            <li><FooterLink to="/engagements">Nos engagements</FooterLink></li>
+            <li><FooterLink to="/dhl">Agence DHL</FooterLink></li>
+            <li><FooterLink to="/contact">Contact</FooterLink></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-white font-semibold mb-3">Compte & Infos</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/connexion" className="hover:text-white">Connexion</Link></li>
-            <li><Link to="/inscription" className="hover:text-white">Inscription</Link></li>
-            <li><Link to="/convention-de-vente" className="hover:text-white">Convention de vente</Link></li>
+            <li><FooterLink to="/connexion">Connexion</FooterLink></li>
+            <li><FooterLink to="/inscription">Inscription</FooterLink></li>
+            <li><FooterLink to="/convention-de-vente">Convention de vente</FooterLink></li>
           </ul>
         </div>
       </div>

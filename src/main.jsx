@@ -8,12 +8,14 @@ import { CartProvider } from './Context/CartContext'
 import { OrdersProvider } from './Context/OrdersContext'
 import { MessagesProvider } from './Context/MessagesContext'
 import { ToastProvider } from './Context/ToastContext'
+import ScrollToTop from './Components/ScrollToTop'
 import './index.css'
 import App from './App'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <ToastProvider>
         <AuthProvider>
           <ProductsProvider>

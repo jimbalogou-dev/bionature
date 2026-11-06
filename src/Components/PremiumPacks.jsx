@@ -50,7 +50,13 @@ function PremiumPacks() {
               )}
 
               <div className="aspect-[4/3] bg-gray-50 flex items-center justify-center p-6">
-                <img src={pack.image} alt={pack.name} className="max-w-full max-h-full object-contain" />
+                <img
+                  src={pack.image}
+                  alt={pack.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-w-full max-h-full object-contain"
+                />
               </div>
 
               <div className="p-6 flex flex-col flex-1">

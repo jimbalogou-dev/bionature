@@ -28,7 +28,13 @@ function ProductCard({ product }) {
     <div className="border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition-shadow bg-white">
       <div className="relative aspect-square bg-gray-50">
         <Link to={`/produit/${product.id}`}>
-          <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover"
+          />
         </Link>
         <button
           onClick={handleToggleFavorite}

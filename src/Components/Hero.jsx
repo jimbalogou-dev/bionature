@@ -48,8 +48,10 @@ function Hero() {
         {/* Image à droite */}
         <div className="flex justify-center">
           <img
-            src= "/hero.jpg"
+            src="/hero.jpg"
             alt="Produits naturels Bio Nature en bouteilles et pots"
+            fetchPriority="high"
+            decoding="async"
             className="max-w-md w-full object-contain"
           />
         </div>
