@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, MapPin, Send } from 'lucide-react'
 import { useMessages } from '../Context/MessagesContext'
 
 function Contact() {
@@ -33,7 +33,6 @@ const handleSubmit = async (e) => {
 
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'bionature818@gmail.com' },
-    { icon: Phone, label: 'Téléphone', value: '+229 01 67 47 17 41' },
     { icon: MapPin, label: 'Adresse', value: ' Bénin, Togo, Côte d\'Ivoire,' },
   ]
 
