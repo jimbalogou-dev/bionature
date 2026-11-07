@@ -194,6 +194,15 @@ function DHL() {
         <p className="text-gray-500 mb-6">
           Une fois votre commande expédiée, utilisez le numéro de suivi fourni sur le site officiel ou via whatsapp du service DHL pour recupérer votre colis à l'agence DHL près de votre pays.
         </p>
+        <a
+          href="https://www.dhl.com/global-en/home/tracking.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white font-medium px-6 py-3 rounded-lg transition-colors"
+        >
+          <ExternalLink size={18} />
+          Suivre mon colis DHL
+        </a>
       </section>
     </div>
   )
