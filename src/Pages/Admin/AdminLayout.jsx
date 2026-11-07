@@ -22,26 +22,46 @@ function AdminLayout() {
   }
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
-      <aside className="w-64 bg-gray-900 text-gray-300 flex flex-col shrink-0">
-        <div className="flex items-center gap-2 px-6 py-5 border-b border-gray-800">
-          <div className="bg-green-700 p-2 rounded-full">
-            <Leaf className="text-white" size={18} />
+    <div className="min-h-screen bg-gray-50 md:flex">
+      <aside className="flex w-full flex-col bg-gray-900 text-gray-300 md:sticky md:top-0 md:h-screen md:min-h-screen md:w-64 md:shrink-0">
+        <div className="flex items-center justify-between gap-3 border-b border-gray-800 px-4 py-3 md:px-6 md:py-5">
+          <div className="flex items-center gap-2">
+            <div className="bg-green-700 p-2 rounded-full">
+              <Leaf className="text-white" size={18} />
+            </div>
+            <div>
+              <p className="text-white font-bold text-sm">BioNatura</p>
+              <p className="text-xs text-gray-500">Espace Admin</p>
+            </div>
           </div>
-          <div>
-            <p className="text-white font-bold text-sm">BioNatura</p>
-            <p className="text-xs text-gray-500">Espace Admin</p>
+          <div className="flex items-center gap-1 md:hidden">
+            <Link
+              to="/"
+              aria-label="Voir le site"
+              title="Voir le site"
+              className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white"
+            >
+              <ExternalLink size={18} />
+            </Link>
+            <button
+              onClick={handleLogout}
+              aria-label="Déconnexion"
+              title="Déconnexion"
+              className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white"
+            >
+              <LogOut size={18} />
+            </button>
           </div>
         </div>
 
-        <nav className="flex-1 px-3 py-4 space-y-1">
+        <nav className="flex gap-1 overflow-x-auto px-3 py-2 md:flex-1 md:flex-col md:space-y-1 md:overflow-x-hidden md:overflow-y-auto md:py-4">
           {links.map(({ label, path, icon: Icon }) => {
             const active = location.pathname === path
             return (
               <Link
                 key={path}
                 to={path}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+                className={`flex shrink-0 items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-xs transition-colors sm:text-sm md:gap-3 ${
                   active
                     ? 'bg-green-800 text-white'
                     : 'text-gray-400 hover:bg-gray-800 hover:text-white'
@@ -54,7 +74,7 @@ function AdminLayout() {
           })}
         </nav>
 
-        <div className="px-3 py-4 border-t border-gray-800 space-y-1">
+        <div className="hidden space-y-1 border-t border-gray-800 px-3 py-4 md:block">
           <Link
             to="/"
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:bg-gray-800 hover:text-white transition-colors"
@@ -73,7 +93,7 @@ function AdminLayout() {
         </div>
       </aside>
 
-      <main className="flex-1 overflow-x-hidden">
+      <main className="min-w-0 flex-1 overflow-x-hidden">
         <Outlet />
       </main>
     </div>

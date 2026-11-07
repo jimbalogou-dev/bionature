@@ -18,16 +18,16 @@ function Account() {
   const totalSpent = orders.reduce((sum, o) => sum + o.total, 0)
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
       
-      <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
-        <div className="flex items-center gap-4">
-          <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center">
+      <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:mb-10 sm:flex-row sm:items-center">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green-100 sm:h-16 sm:w-16">
             <User className="text-green-700" size={28} />
           </div>
-          <div>
-            <h1 className="text-xl font-bold text-gray-800">Bonjour, {user.name}</h1>
-            <p className="text-sm text-gray-500">{user.email}</p>
+          <div className="min-w-0">
+            <h1 className="break-words text-lg font-bold text-gray-800 sm:text-xl">Bonjour, {user.name}</h1>
+            <p className="break-all text-sm text-gray-500">{user.email}</p>
           </div>
         </div>
 
@@ -40,36 +40,36 @@ function Account() {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
-        <div className="border border-gray-100 rounded-xl p-5">
+      <div className="mb-8 grid grid-cols-2 gap-3 sm:mb-10 sm:grid-cols-3 sm:gap-4">
+        <div className="min-w-0 rounded-xl border border-gray-100 p-4 sm:p-5">
           <div className="flex items-center gap-2 text-gray-500 text-xs">
             <ShoppingBag size={16} />
             Commandes
           </div>
-          <p className="text-2xl font-bold text-gray-800 mt-1">{orders.length}</p>
+          <p className="mt-1 text-2xl font-bold text-gray-800">{orders.length}</p>
         </div>
 
-        <div className="border border-gray-100 rounded-xl p-5">
+        <div className="min-w-0 rounded-xl border border-gray-100 p-4 sm:p-5">
           <div className="flex items-center gap-2 text-gray-500 text-xs">
             <TrendingUp size={16} />
             Total dépensé
           </div>
-          <p className="text-2xl font-bold text-gray-800 mt-1">${totalSpent.toFixed(2)}</p>
+          <p className="mt-1 break-all text-xl font-bold text-gray-800 sm:text-2xl">${totalSpent.toFixed(2)}</p>
         </div>
 
-        <div className="border border-gray-100 rounded-xl p-5 col-span-2 sm:col-span-1">
+        <div className="col-span-2 min-w-0 rounded-xl border border-gray-100 p-4 sm:col-span-1 sm:p-5">
           <div className="flex items-center gap-2 text-gray-500 text-xs">
             <Heart size={16} />
             Favoris
           </div>
-          <p className="text-2xl font-bold text-gray-800 mt-1">{favorites.length}</p>
+          <p className="mt-1 text-2xl font-bold text-gray-800">{favorites.length}</p>
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4 mb-10">
+      <div className="mb-8 grid gap-3 sm:mb-10 sm:grid-cols-2 sm:gap-4">
         <Link
           to="/favoris"
-          className="flex items-center gap-3 border border-gray-100 rounded-xl p-5 hover:border-green-600 hover:shadow-sm transition-all"
+          className="flex min-w-0 items-center gap-3 rounded-xl border border-gray-100 p-4 transition-all hover:border-green-600 hover:shadow-sm sm:p-5"
         >
           <Heart className="text-green-700" size={22} />
           <div>
@@ -80,7 +80,7 @@ function Account() {
 
         <Link
           to="/boutique"
-          className="flex items-center gap-3 border border-gray-100 rounded-xl p-5 hover:border-green-600 hover:shadow-sm transition-all"
+          className="flex min-w-0 items-center gap-3 rounded-xl border border-gray-100 p-4 transition-all hover:border-green-600 hover:shadow-sm sm:p-5"
         >
           <Package className="text-green-700" size={22} />
           <div>
@@ -113,7 +113,7 @@ function Account() {
         ) : (
           <div className="space-y-4">
             {orders.map((order) => (
-              <div key={order.id} className="border border-gray-100 rounded-xl p-5">
+              <div key={order.id} className="rounded-xl border border-gray-100 p-4 sm:p-5">
                 <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
                   <div>
                     <p className="text-sm font-medium text-gray-800">

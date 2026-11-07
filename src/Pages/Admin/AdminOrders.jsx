@@ -46,13 +46,13 @@ function AdminOrders() {
   }
 
   return (
-    <div className="p-6 sm:p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <h1 className="text-2xl font-bold text-gray-800">Commandes</h1>
       <p className="text-gray-500 text-sm mt-1">
         {orders.length} commande{orders.length > 1 ? 's' : ''} au total
       </p>
 
-      <div className="bg-white border border-gray-100 rounded-xl mt-6 overflow-hidden">
+      <div className="mt-6 overflow-hidden rounded-xl border border-gray-100 bg-white">
         {loading ? (
           <p className="text-center py-16 text-gray-400 text-sm">Chargement...</p>
         ) : orders.length === 0 ? (
@@ -61,7 +61,8 @@ function AdminOrders() {
             <p className="text-gray-500 mt-3 text-sm">Aucune commande pour le moment.</p>
           </div>
         ) : (
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[760px] text-sm">
             <thead>
               <tr className="border-b border-gray-100 text-left text-gray-500">
                 <th className="px-5 py-3 font-medium">Commande</th>
@@ -105,6 +106,7 @@ function AdminOrders() {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>

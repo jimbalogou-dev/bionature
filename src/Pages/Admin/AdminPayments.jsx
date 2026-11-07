@@ -25,7 +25,7 @@ function AdminPayments() {
   const countryList = Object.values(revenueByCountry).sort((a, b) => b.total - a.total)
 
   return (
-    <div className="p-6 sm:p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <h1 className="text-2xl font-bold text-gray-800">Paiements</h1>
       <p className="text-gray-500 text-sm mt-1">
         {orders.length} paiement{orders.length > 1 ? 's' : ''} · ${totalRevenue.toFixed(2)} de revenus
@@ -53,14 +53,15 @@ function AdminPayments() {
         </div>
       )}
 
-      <div className="bg-white border border-gray-100 rounded-xl mt-8 overflow-hidden">
+      <div className="mt-8 overflow-hidden rounded-xl border border-gray-100 bg-white">
         {orders.length === 0 ? (
           <div className="text-center py-16">
             <CreditCard className="text-gray-300 mx-auto" size={40} />
             <p className="text-gray-500 mt-3 text-sm">Aucun paiement pour le moment.</p>
           </div>
         ) : (
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[620px] text-sm">
             <thead>
               <tr className="border-b border-gray-100 text-left text-gray-500">
                 <th className="px-5 py-3 font-medium">Commande</th>
@@ -86,6 +87,7 @@ function AdminPayments() {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>

@@ -32,13 +32,13 @@ function AdminUsers() {
   }
 
   return (
-    <div className="p-6 sm:p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <h1 className="text-2xl font-bold text-gray-800">Utilisateurs</h1>
       <p className="text-gray-500 text-sm mt-1">
         {users.length} utilisateur{users.length > 1 ? 's' : ''} inscrit{users.length > 1 ? 's' : ''}
       </p>
 
-      <div className="bg-white border border-gray-100 rounded-xl mt-6 overflow-hidden">
+      <div className="mt-6 overflow-hidden rounded-xl border border-gray-100 bg-white">
         {loading ? (
           <p className="text-center py-16 text-gray-400 text-sm">Chargement...</p>
         ) : users.length === 0 ? (
@@ -47,7 +47,8 @@ function AdminUsers() {
             <p className="text-gray-500 mt-3 text-sm">Aucun utilisateur inscrit pour le moment.</p>
           </div>
         ) : (
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[560px] text-sm">
             <thead>
               <tr className="border-b border-gray-100 text-left text-gray-500">
                 <th className="px-5 py-3 font-medium">Nom</th>
@@ -73,6 +74,7 @@ function AdminUsers() {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>

@@ -101,7 +101,7 @@ function AdminProducts() {
   }
 
   return (
-    <div className="p-6 sm:p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-800">Produits</h1>
@@ -231,7 +231,7 @@ function AdminProducts() {
       )}
 
       {/* Liste des produits */}
-      <div className="bg-white border border-gray-100 rounded-xl mt-6 overflow-hidden">
+      <div className="mt-6 overflow-hidden rounded-xl border border-gray-100 bg-white">
         {loading ? (
           <p className="text-center py-16 text-gray-400 text-sm">Chargement...</p>
         ) : products.length === 0 ? (
@@ -240,7 +240,8 @@ function AdminProducts() {
             <p className="text-gray-500 mt-3 text-sm">Aucun produit pour le moment.</p>
           </div>
         ) : (
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="border-b border-gray-100 text-left text-gray-500">
                 <th className="px-5 py-3 font-medium">Produit</th>
@@ -290,6 +291,7 @@ function AdminProducts() {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>
