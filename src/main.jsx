@@ -9,6 +9,7 @@ import { OrdersProvider } from './Context/OrdersContext'
 import { MessagesProvider } from './Context/MessagesContext'
 import { ToastProvider } from './Context/ToastContext'
 import ScrollToTop from './Components/ScrollToTop'
+import VisitorTracker from './Components/VisitorTracker'
 import './index.css'
 import App from './App'
 
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <ScrollToTop />
+      <VisitorTracker />
       <ToastProvider>
         <AuthProvider>
           <ProductsProvider>
