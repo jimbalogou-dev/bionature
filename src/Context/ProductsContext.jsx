@@ -1,10 +1,11 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { products as fallbackProducts } from '../data/products'
 
 const ProductsContext = createContext()
 const API_URL = 'https://bioback.onrender.com/api'
 
 export function ProductsProvider({ children }) {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState(fallbackProducts)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -26,7 +27,7 @@ export function ProductsProvider({ children }) {
     }
   }
 
-  const getProductById = (id) => products.find((p) => p.id === id)
+  const getProductById = (id) => products.find((p) => String(p.id) === String(id))
 
   const createProduct = async (productData) => {
     const token = localStorage.getItem('token')

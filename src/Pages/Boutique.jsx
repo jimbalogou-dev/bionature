@@ -171,7 +171,7 @@ function Boutique() {
             </div>
           )}
 
-          {loading ? (
+          {loading && products.length === 0 ? (
             <p className="text-gray-500 text-center py-12">Chargement...</p>
           ) : filteredProducts.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">

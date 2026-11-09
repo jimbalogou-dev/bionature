@@ -15,7 +15,7 @@ function BestSellers() {
         </Link>
       </div>
 
-      {loading ? (
+      {loading && products.length === 0 ? (
         <p className="text-sm text-gray-400">Chargement des produits...</p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">

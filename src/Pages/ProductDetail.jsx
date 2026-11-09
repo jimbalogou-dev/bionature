@@ -21,7 +21,7 @@ function ProductDetail() {
     setQuantity(1)
   }, [productId])
 
-  if (loading) {
+  if (loading && products.length === 0) {
     return (
       <div className="max-w-7xl mx-auto px-6 py-20 text-center">
         <p className="text-gray-500 text-sm">Chargement...</p>
