@@ -15,7 +15,9 @@ export async function apiRequest(endpoint, options = {}) {
   const data = await response.json()
 
   if (!response.ok) {
-    throw new Error(data.error || 'Une erreur est survenue.')
+    const error = new Error(data.error || 'Une erreur est survenue.')
+    error.status = response.status
+    throw error
   }
 
   return data

@@ -25,15 +25,49 @@ function AdminProducts() {
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState(null)
   const [formData, setFormData] = useState(emptyForm)
+  const [imageFileName, setImageFileName] = useState('')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    if (e.target.name === 'image') setImageFileName('')
+  }
+
+  const handleImageChange = (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    if (!file.type.startsWith('image/')) {
+      setError('Veuillez sélectionner un fichier image.')
+      e.target.value = ''
+      return
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      setError('La taille de l’image ne doit pas dépasser 5 Mo.')
+      e.target.value = ''
+      return
+    }
+
+    const reader = new FileReader()
+    reader.onload = () => {
+      if (typeof reader.result !== 'string') {
+        setError('Impossible de lire cette image.')
+        return
+      }
+
+      setFormData((previous) => ({ ...previous, image: reader.result }))
+      setImageFileName(file.name)
+      setError('')
+    }
+    reader.onerror = () => setError('Impossible de lire cette image.')
+    reader.readAsDataURL(file)
   }
 
   const openCreateForm = () => {
     setFormData(emptyForm)
+    setImageFileName('')
     setEditingId(null)
     setError('')
     setShowForm(true)
@@ -48,6 +82,7 @@ function AdminProducts() {
       category: product.category,
       stock: product.stock,
     })
+    setImageFileName('')
     setEditingId(product.id)
     setError('')
     setShowForm(true)
@@ -57,6 +92,7 @@ function AdminProducts() {
     setShowForm(false)
     setEditingId(null)
     setFormData(emptyForm)
+    setImageFileName('')
     setError('')
   }
 
@@ -188,16 +224,45 @@ function AdminProducts() {
               </div>
             </div>
 
-            <div>
-              <label className="text-sm font-medium text-gray-700">Image (chemin, ex: /Produit5-removebg-preview.png)</label>
-              <input
-                type="text"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                className="w-full mt-1 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
-              />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label htmlFor="product-image-file" className="text-sm font-medium text-gray-700">
+                  Choisir une image depuis votre appareil
+                </label>
+                <input
+                  id="product-image-file"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="w-full mt-1 border border-gray-200 rounded-lg px-4 py-2.5 text-sm file:mr-3 file:rounded-md file:border-0 file:bg-green-50 file:px-3 file:py-1 file:text-sm file:font-medium file:text-green-800"
+                />
+                <p className="mt-1 text-xs text-gray-500">
+                  {imageFileName || 'Image de 5 Mo maximum.'}
+                </p>
+              </div>
+              <div>
+                <label htmlFor="product-image-path" className="text-sm font-medium text-gray-700">
+                  Ou saisir un chemin d’image existant
+                </label>
+                <input
+                  type="text"
+                  name="image"
+                  id="product-image-path"
+                  value={formData.image}
+                  onChange={handleChange}
+                  placeholder="/Produit5-removebg-preview.png"
+                  className="w-full mt-1 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
+                />
+              </div>
             </div>
+
+            {formData.image && (
+              <img
+                src={formData.image}
+                alt="Aperçu de l’image du produit"
+                className="h-24 w-24 rounded-lg border border-gray-200 bg-gray-50 object-contain p-1"
+              />
+            )}
 
             <div>
               <label className="text-sm font-medium text-gray-700">Description</label>

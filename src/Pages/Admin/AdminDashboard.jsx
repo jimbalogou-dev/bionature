@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Users, Package, CreditCard, MessageSquare } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { apiRequest } from '../../Utils/api'
 
 function formatVisitorDate(date) {
@@ -15,9 +16,26 @@ function AdminDashboard() {
   const [orders, setOrders] = useState([])
   const [messages, setMessages] = useState([])
   const [visitorStats, setVisitorStats] = useState(null)
-  const [visitorError, setVisitorError] = useState('')
+  const [visitorError, setVisitorError] = useState(null)
   const [dashboardError, setDashboardError] = useState('')
   const [loading, setLoading] = useState(true)
+  const [loadingVisitors, setLoadingVisitors] = useState(false)
+
+  const loadVisitorStats = useCallback(async () => {
+    setLoadingVisitors(true)
+    setVisitorError('')
+    try {
+      setVisitorStats(await apiRequest('/users/visitor-stats'))
+    } catch (error) {
+      console.error(error)
+      setVisitorError({
+        message: error.message || 'Impossible de charger les statistiques des visiteurs.',
+        status: error.status,
+      })
+    } finally {
+      setLoadingVisitors(false)
+    }
+  }, [])
 
   const loadDashboard = useCallback(async () => {
     try {
@@ -29,20 +47,14 @@ function AdminDashboard() {
       setStats(statsData)
       setOrders(ordersData)
       setMessages(messagesData)
-
-      try {
-        setVisitorStats(await apiRequest('/users/visitor-stats'))
-      } catch (error) {
-        console.error(error)
-        setVisitorError(error.message || 'Impossible de charger les statistiques des visiteurs.')
-      }
+      await loadVisitorStats()
     } catch (error) {
       console.error(error)
       setDashboardError(error.message || 'Impossible de charger le tableau de bord.')
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [loadVisitorStats])
 
   useEffect(() => {
     void Promise.resolve().then(loadDashboard)
@@ -114,9 +126,28 @@ function AdminDashboard() {
         </div>
 
         {visitorError ? (
-          <p role="alert" className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
-            {visitorError}
-          </p>
+          <div role="alert" className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+            <p>
+              {visitorError.status === 401
+                ? 'Votre session a expiré. Reconnectez-vous pour consulter les statistiques des visiteurs.'
+                : visitorError.message}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-4">
+              {visitorError.status === 401 ? (
+                <Link to="/connexion" className="font-semibold underline">
+                  Se reconnecter
+                </Link>
+              ) : null}
+              <button
+                type="button"
+                onClick={loadVisitorStats}
+                disabled={loadingVisitors}
+                className="font-semibold underline disabled:opacity-60"
+              >
+                {loadingVisitors ? 'Actualisation...' : 'Réessayer'}
+              </button>
+            </div>
+          </div>
         ) : visitorStats ? (
           <>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-5 sm:gap-4">
